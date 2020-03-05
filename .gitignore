@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Ignore cassandra output files
+species*
+*.inp*
+*.in.*
+*.out*
