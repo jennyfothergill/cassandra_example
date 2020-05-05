@@ -1,0 +1,242 @@
+<ForceField>
+ <AtomTypes>
+  <Type name="H_"    class="H_"    element="H"  mass="1.007"/>
+  <Type name="H_b"   class="H_b"   element="H"  mass="1.007"   def="[H;X2]" desc="bridging hydrogen"/>
+  <Type name="He4+4" class="He4+4" element="He" mass="4.002602"/>
+  <Type name="Li"    class="Li"    element="Li" mass="6.941"/>
+  <Type name="Be3+2" class="Be3+2" element="Be" mass="9.012182"/>
+  <Type name="B_3"   class="B_3"   element="B"  mass="10.811"  def="[B;X4]" desc="tetrahedral boron "/>
+  <Type name="B_2"   class="B_2"   element="B"  mass="10.811"  def="[B;X3]" desc="trigonal boron"/>
+  <Type name="C_3"   class="C_3"   element="C"  mass="12.0107" def="[C;X4]" desc="tetrahedral carbon"/>
+  <!--<Type name="C_R" class="C_R" element="C" mass="12.0107" def="c" desc="resonant carbon"/>-->
+  <Type name="C_2"   class="C_2"   element="C"  mass="12.0107" def="[C;X3]" desc="trigonal carbon"/>
+  <Type name="C_1"   class="C_1"   element="C"  mass="12.0107" def="[C;X2]" desc="linear carbon"/>
+  <Type name="N_3"   class="N_3"   element="N"  mass="14.0067" def="[N;X3]" desc="tetrahedral nitrogen"/>
+  <!--  <Type name="N_R" class="N_R" element="N" mass="14.0067" def="n" desc="resonant nitrogen"/>-->
+  <Type name="N_2"   class="N_2"   element="N"  mass="14.0067" def="[N;X2]" desc="trigonal nitrogen"/>
+  <Type name="N_1"   class="N_1"   element="N"  mass="14.0067" def="[N;X1]" desc="linear nitrogen"/>
+  <Type name="O_"    class="O_"    element="O"  mass="15.9994" def="[O]" desc="made up to catch O without enough bonds"/>
+  <Type name="O_3"   class="O_3"   element="O"  mass="15.9994" def="[O;X2]" overrides="O_" desc="tetrahedral oxygen"/>
+  <!--<Type name="O_R" class="O_R" element="O" mass="15.9994" def="o" desc="resonant oxygen"/>--> 
+  <Type name="O_2"   class="O_2"   element="O"  mass="15.9994" def="[O;X1]" overrides="O_" desc="trigonal oxygen"/>  
+  <Type name="O_3_z" class="O_3_z" element="O"  mass="15.9994" def="[O]([Al,Si,Ti,Sn,Zn])" overrides="O_, O_2, O_3" desc="zeolite oxygen"/> 
+  <!-- <Type name="O_1" class="O_1" element="O" mass="15.9994" def="O#*" desc="linear oxygen"/> -->   
+  <Type name="F_"    class="F_"    element="F"  mass="18.9984032"/>
+  <Type name="Ne4+4" class="Ne4+4" element="Ne" mass="20.1797"/>
+  <Type name="Na"    class="Na"    element="Na" mass="22.98976928"/>
+  <Type name="Mg3+2" class="Mg3+2" element="Mg" mass="24.3050"/>
+  <Type name="Al3"   class="Al3"   element="Al" mass="26.9815386" def="[Al]"/>
+  <Type name="Si3"   class="Si3"   element="Si" mass="28.0855"/>
+  <Type name="P_"    class="P_"    element="P"  mass="30.973762"  def="[P]" desc="made up to catch P with not enough bonds"/>
+  <Type name="P_3+3" class="P_3+3" element="P"  mass="30.973762"  def="[P;X3]"    overrides="P_" desc="tetrahedral phosphorous +3"/>
+  <Type name="P_3+5" class="P_3+5" element="P"  mass="30.973762"  def="[P;X4]"    overrides="P_" desc="tetrahedral phosphorous +5"/>
+  <Type name="P_3+q" class="P_3+q" element="P"  mass="30.973762"  def="[P;X3](C)" overrides="P_" desc="tetrahedral phosphorous in organometallics"/>
+  <Type name="S_3+2" class="S_3+2" element="S"  mass="32.065" def="" desc=""/>
+  <Type name="S_3+4" class="S_3+4" element="S"  mass="32.065" def="" desc=""/>
+  <Type name="S_3+6" class="S_3+6" element="S"  mass="32.065" def="" desc=""/>   
+  <!--<Type name="S_R"   class="S_R"   element="S"  mass="32.065" def="" desc=""/>-->   
+  <Type name="S_2"   class="S_2"   element="S"  mass="32.065" def="" desc=""/>
+  <Type name="Cl"    class="Cl"    element="Cl" mass="35.453"/>
+  <Type name="Ar4+4" class="Ar4+4" element="Ar" mass="39.948"/>
+  <Type name="K"     class="K"     element="K"  mass="39.0983"/>
+  <Type name="Ca6+2" class="Ca6+2" element="Ca" mass="40.078"/>
+  <Type name="Sc3+3" class="Sc3+3" element="Sc" mass="44.955912"/>
+  <Type name="Ti3+4" class="Ti3+4" element="Ti" mass="47.867" def="" desc=""/>
+  <Type name="Ti6+4" class="Ti6+4" element="Ti" mass="47.867" def="" desc=""/>
+  <Type name="V_3+5" class="V_3+5" element="V"  mass="50.9415"/>
+  <Type name="Cr6+3" class="Cr6+3" element="Cr" mass="51.9961"/>
+  <Type name="Mn6+2" class="Mn6+2" element="Mn" mass="54.938045"/>
+  <Type name="Fe3+2" class="Fe3+2" element="Fe" mass="55.845" def="" desc=""/>
+  <Type name="Fe6+2" class="Fe6+2" element="Fe" mass="55.845" def="" desc=""/>
+  <Type name="Co6+3" class="Co6+3" element="Co" mass="58.933195"/>
+  <Type name="Ni4+2" class="Ni4+2" element="Ni" mass="58.6934"/>
+  <Type name="Cu3+1" class="Cu3+1" element="Cu" mass="63.546"/>
+  <Type name="Zn3+2" class="Zn3+2" element="Zn" mass="65.38"/>
+  <Type name="Ga3+3" class="Ga3+3" element="Ga" mass="69.723"/>
+  <Type name="Ge3"   class="Ge3"   element="Ge" mass="72.63"/>
+  <Type name="As3+3" class="As3+3" element="As" mass="74.92160"/>
+  <Type name="Se3+2" class="Se3+2" element="Se" mass="78.96"/>
+  <Type name="Br"    class="Br"    element="Br" mass="79.904"/>
+  <Type name="Kr4+4" class="Kr4+4" element="Kr" mass="83.798"/>
+  <Type name="Rb"    class="Rb"    element="Rb" mass="85.4678"/>
+  <Type name="Sr6+2" class="Sr6+2" element="Sr" mass="87.62"/>
+  <Type name="Y_3+3" class="Y_3+3" element="Y"  mass="88.90585"/>
+  <Type name="Zr3+4" class="Zr3+4" element="Zr" mass="91.224"/>
+  <Type name="Nb3+5" class="Nb3+5" element="Nb" mass="92.90638"/>
+  <Type name="Mo6+6" class="Mo6+6" element="Mo" mass="95.96"/>
+  <Type name="Mo3+6" class="Mo3+6" element="Mo" mass="95.96"/>
+  <Type name="Tc6+5" class="Tc6+5" element="Tc" mass="98"/>
+  <Type name="Ru6+2" class="Ru6+2" element="Ru" mass="101.07"/>
+  <Type name="Rh6+3" class="Rh6+3" element="Rh" mass="102.90550"/>
+  <Type name="Pd4+2" class="Pd4+2" element="Pd" mass="106.42"/>
+  <Type name="Agl+l" class="Agl+l" element="Ag" mass="107.8682"/>
+  <Type name="Cd3+2" class="Cd3+2" element="Cd" mass="112.411"/>
+  <Type name="In3+3" class="In3+3" element="In" mass="114.818"/>
+  <Type name="Sn3"   class="Sn3"   element="Sn" mass="118.710"/>
+  <Type name="Sb3+3" class="Sb3+3" element="Sb" mass="121.760"/>
+  <Type name="Te3+2" class="Te3+2" element="Te" mass="127.60"/>
+  <Type name="I_"    class="I_"    element="I"  mass="126.90447"/>
+  <Type name="Xe4+4" class="Xe4+4" element="Xe" mass="131.293"/>
+  <Type name="Cs"    class="Cs"    element="Cs" mass="132.9054519"/>
+  <Type name="Ba6+2" class="Ba6+2" element="Ba" mass="137.327"/>
+  <Type name="La3+3" class="La3+3" element="La" mass="138.90547"/>
+  <Type name="Ce6+3" class="Ce6+3" element="Ce" mass="140.116"/>
+  <Type name="Pr6+3" class="Pr6+3" element="Pr" mass="140.90765"/>
+  <Type name="Nd6+3" class="Nd6+3" element="Nd" mass="144.242"/>
+  <Type name="Pm6+3" class="Pm6+3" element="Pm" mass="145"/>
+  <Type name="Sm6+3" class="Sm6+3" element="Sm" mass="150.36"/>
+  <Type name="Eu6+3" class="Eu6+3" element="Eu" mass="151.964"/>
+  <Type name="Gd6+3" class="Gd6+3" element="Gd" mass="157.25"/>
+  <Type name="Tb6+3" class="Tb6+3" element="Tb" mass="158.92535"/>
+  <Type name="Dy6+3" class="Dy6+3" element="Dy" mass="162.500"/>
+  <Type name="Ho6+3" class="Ho6+3" element="Ho" mass="164.93032"/>
+  <Type name="Er6+3" class="Er6+3" element="Er" mass="167.259"/>
+  <Type name="Tm6+3" class="Tm6+3" element="Tm" mass="168.93421"/>
+  <Type name="Yb6+3" class="Yb6+3" element="Yb" mass="173.054"/>
+  <Type name="Lu6+3" class="Lu6+3" element="Lu" mass="174.9668"/>
+  <Type name="Hf3+4" class="Hf3+4" element="Hf" mass="178.49"/>
+  <Type name="Ta3+5" class="Ta3+5" element="Ta" mass="180.94788"/>
+  <Type name="W_6+6" class="W_6+6" element="W"  mass="183.84"  def="" desc=""/>
+  <Type name="W_3+4" class="W_3+4" element="W"  mass="183.84"  def="" desc=""/>
+  <Type name="W_3+6" class="W_3+6" element="W"  mass="183.84"  def="" desc=""/>
+  <Type name="Re6+5" class="Re6+5" element="Re" mass="186.207" def="" desc=""/>
+  <Type name="Re3+7" class="Re3+7" element="Re" mass="186.207" def="" desc=""/>
+  <Type name="Os6+6" class="Os6+6" element="Os" mass="190.23"/>
+  <Type name="Ir6+3" class="Ir6+3" element="Ir" mass="192.217"/>
+  <Type name="Pt4+2" class="Pt4+2" element="Pt" mass="195.084"/>
+  <Type name="Au4+3" class="Au4+3" element="Au" mass="196.966569"/>
+  <Type name="Hg1+2" class="Hg1+2" element="Hg" mass="200.59"/>
+  <Type name="Tl3+3" class="Tl3+3" element="Tl" mass="204.3833"/>
+  <Type name="Pb3"   class="Pb3"   element="Pb" mass="207.2"/>
+  <Type name="Bi3+3" class="Bi3+3" element="Bi" mass="208.98040"/>
+  <Type name="Po3+2" class="Po3+2" element="Po" mass="209"/>
+  <Type name="At"    class="At"    element="At" mass="210"/>
+  <Type name="Rn4+4" class="Rn4+4" element="Rn" mass="222"/>
+  <Type name="Fr"    class="Fr"    element="Fr" mass="223"/>
+  <Type name="Ra6+2" class="Ra6+2" element="Ra" mass="226"/>
+  <Type name="Ac6+3" class="Ac6+3" element="Ac" mass="227"/>
+  <Type name="Th6+4" class="Th6+4" element="Th" mass="232.03806"/>
+  <Type name="Pa6+4" class="Pa6+4" element="Pa" mass="231.03588"/>
+  <Type name="U_6+4" class="U_6+4" element="U"  mass="238.02891"/>
+ </AtomTypes>
+ <NonbondedForce coulomb14scale="0.833333" lj14scale="0.5">
+  <Atom type="P_"    charge="0"     sigma="0"     epsilon="0"/>
+  <Atom type="O_"    charge="0"     sigma="0"     epsilon="0"/>
+  <Atom type="H_"    charge="0.712" sigma="2.886" epsilon="0.044"/>
+  <Atom type="H_b"   charge="0.712" sigma="2.886" epsilon="0.044"/>
+  <Atom type="He4+4" charge="0.098" sigma="2.362" epsilon="0.056"/>
+  <Atom type="Li"    charge="1.026" sigma="2.451" epsilon="0.025"/>
+  <Atom type="Be3+2" charge="1.565" sigma="2.745" epsilon="0.085"/>
+  <Atom type="B_3"   charge="1.755" sigma="4.083" epsilon="0.18"/>
+  <Atom type="B_2"   charge="1.755" sigma="4.083" epsilon="0.18"/>
+  <Atom type="C_3"   charge="1.912" sigma="3.851" epsilon="0.105"/>
+  <Atom type="C_R"   charge="1.912" sigma="3.851" epsilon="0.105"/>
+  <Atom type="C_2"   charge="1.912" sigma="3.851" epsilon="0.105"/>
+  <Atom type="C_1"   charge="1.912" sigma="3.851" epsilon="0.105"/>
+  <Atom type="N_3"   charge="2.544" sigma="3.66"  epsilon="0.069"/>
+  <Atom type="N_R"   charge="2.544" sigma="3.66"  epsilon="0.069"/>
+  <Atom type="N_2"   charge="2.544" sigma="3.66"  epsilon="0.069"/>
+  <Atom type="N_1"   charge="2.544" sigma="3.66"  epsilon="0.069"/>
+  <Atom type="O_3"   charge="2.3"   sigma="3.5"   epsilon="0.06"/>
+  <Atom type="O_3_z" charge="2.3"   sigma="3.5"   epsilon="0.06"/>
+  <Atom type="O_R"   charge="2.3"   sigma="3.5"   epsilon="0.06"/>
+  <Atom type="O_2"   charge="2.3"   sigma="3.5"   epsilon="0.06"/>
+  <Atom type="O_1"   charge="2.3"   sigma="3.5"   epsilon="0.06"/>
+  <Atom type="F_"    charge="1.735" sigma="3.364" epsilon="0.05"/>
+  <Atom type="Ne4+4" charge="0.194" sigma="3.243" epsilon="0.042"/>
+  <Atom type="Na"    charge="1.081" sigma="2.983" epsilon="0.03"/>
+  <Atom type="Mg3+2" charge="1.787" sigma="3.021" epsilon="0.111"/>
+  <Atom type="Al3"   charge="1.792" sigma="4.499" epsilon="0.505"/>
+  <Atom type="Si3"   charge="2.323" sigma="4.295" epsilon="0.402"/>
+  <Atom type="P_3+3" charge="2.863" sigma="4.147" epsilon="0.305"/>
+  <Atom type="P_3+5" charge="2.863" sigma="4.147" epsilon="0.305"/>
+  <Atom type="P_3+q" charge="2.863" sigma="4.147" epsilon="0.305"/>
+  <Atom type="S_3+2" charge="2.703" sigma="4.035" epsilon="0.274"/>
+  <Atom type="S_3+4" charge="2.703" sigma="4.035" epsilon="0.274"/>
+  <Atom type="S_3+6" charge="2.703" sigma="4.035" epsilon="0.274"/>
+  <Atom type="S_R"   charge="2.703" sigma="4.035" epsilon="0.274"/>
+  <Atom type="S_2"   charge="2.703" sigma="4.035" epsilon="0.274"/>
+  <Atom type="Cl"    charge="2.348" sigma="3.947" epsilon="0.227"/>
+  <Atom type="Ar4+4" charge="0.3"   sigma="3.868" epsilon="0.185"/>
+  <Atom type="K"     charge="1.165" sigma="3.812" epsilon="0.035"/>
+  <Atom type="Ca6+2" charge="2.141" sigma="3.399" epsilon="0.238"/>
+  <Atom type="Sc3+3" charge="2.592" sigma="3.295" epsilon="0.019"/>
+  <Atom type="Ti3+4" charge="2.659" sigma="3.175" epsilon="0.017"/>
+  <Atom type="Ti6+4" charge="2.659" sigma="3.175" epsilon="0.017"/>
+  <Atom type="V_3+5" charge="2.679" sigma="3.144" epsilon="0.016"/>
+  <Atom type="Cr6+3" charge="2.463" sigma="3.023" epsilon="0.015"/>
+  <Atom type="Mn6+2" charge="2.43"  sigma="2.961" epsilon="0.013"/>
+  <Atom type="Fe3+2" charge="2.43"  sigma="2.912" epsilon="0.013"/>
+  <Atom type="Fe6+2" charge="2.43"  sigma="2.912" epsilon="0.013"/>
+  <Atom type="Co6+3" charge="2.43"  sigma="2.872" epsilon="0.014"/>
+  <Atom type="Ni4+2" charge="2.43"  sigma="2.834" epsilon="0.015"/>
+  <Atom type="Cu3+1" charge="1.756" sigma="3.495" epsilon="0.005"/>
+  <Atom type="Zn3+2" charge="1.308" sigma="2.763" epsilon="0.124"/>
+  <Atom type="Ga3+3" charge="1.821" sigma="4.383" epsilon="0.415"/>
+  <Atom type="Ge3"   charge="2.789" sigma="4.28"  epsilon="0.379"/>
+  <Atom type="As3+3" charge="2.864" sigma="4.23"  epsilon="0.309"/>
+  <Atom type="Se3+2" charge="2.764" sigma="4.205" epsilon="0.291"/>
+  <Atom type="Br"    charge="2.519" sigma="4.189" epsilon="0.251"/>
+  <Atom type="Kr4+4" charge="0.452" sigma="4.141" epsilon="0.22"/>
+  <Atom type="Rb"    charge="1.592" sigma="4.114" epsilon="0.04"/>
+  <Atom type="Sr6+2" charge="2.449" sigma="3.641" epsilon="0.235"/>
+  <Atom type="Y_3+3" charge="3.257" sigma="3.345" epsilon="0.072"/>
+  <Atom type="Zr3+4" charge="3.667" sigma="3.124" epsilon="0.069"/>
+  <Atom type="Nb3+5" charge="3.618" sigma="3.165" epsilon="0.059"/>
+  <Atom type="Mo6+6" charge="3.4"   sigma="3.052" epsilon="0.056"/>
+  <Atom type="Mo3+6" charge="3.4"   sigma="3.052" epsilon="0.056"/>
+  <Atom type="Tc6+5" charge="3.4"   sigma="2.998" epsilon="0.048"/>
+  <Atom type="Ru6+2" charge="3.4"   sigma="2.963" epsilon="0.056"/>
+  <Atom type="Rh6+3" charge="3.508" sigma="2.929" epsilon="0.053"/>
+  <Atom type="Pd4+2" charge="3.21"  sigma="2.899" epsilon="0.048"/>
+  <Atom type="Agl+l" charge="1.956" sigma="3.148" epsilon="0.036"/>
+  <Atom type="Cd3+2" charge="1.65"  sigma="2.848" epsilon="0.228"/>
+  <Atom type="In3+3" charge="2.07"  sigma="4.463" epsilon="0.599"/>
+  <Atom type="Sn3"   charge="2.961" sigma="4.392" epsilon="0.567"/>
+  <Atom type="Sb3+3" charge="2.704" sigma="4.42"  epsilon="0.449"/>
+  <Atom type="Te3+2" charge="2.882" sigma="4.47"  epsilon="0.398"/>
+  <Atom type="I_"    charge="2.65"  sigma="4.5"   epsilon="0.339"/>
+  <Atom type="Xe4+4" charge="0.556" sigma="4.404" epsilon="0.332"/>
+  <Atom type="Cs"    charge="1.573" sigma="4.517" epsilon="0.045"/>
+  <Atom type="Ba6+2" charge="2.727" sigma="3.703" epsilon="0.364"/>
+  <Atom type="La3+3" charge="3.3"   sigma="3.522" epsilon="0.017"/>
+  <Atom type="Ce6+3" charge="3.3"   sigma="3.556" epsilon="0.013"/>
+  <Atom type="Pr6+3" charge="3.3"   sigma="3.606" epsilon="0.01"/>
+  <Atom type="Nd6+3" charge="3.3"   sigma="3.575" epsilon="0.01"/>
+  <Atom type="Pm6+3" charge="3.3"   sigma="3.547" epsilon="0.009"/>
+  <Atom type="Sm6+3" charge="3.3"   sigma="3.52"  epsilon="0.008"/>
+  <Atom type="Eu6+3" charge="3.3"   sigma="3.493" epsilon="0.008"/>
+  <Atom type="Gd6+3" charge="3.3"   sigma="3.368" epsilon="0.009"/>
+  <Atom type="Tb6+3" charge="3.3"   sigma="3.451" epsilon="0.007"/>
+  <Atom type="Dy6+3" charge="3.3"   sigma="3.428" epsilon="0.007"/>
+  <Atom type="Ho6+3" charge="3.416" sigma="3.409" epsilon="0.007"/>
+  <Atom type="Er6+3" charge="3.3"   sigma="3.391" epsilon="0.007"/>
+  <Atom type="Tm6+3" charge="3.3"   sigma="3.374" epsilon="0.006"/>
+  <Atom type="Yb6+3" charge="2.618" sigma="3.355" epsilon="0.228"/>
+  <Atom type="Lu6+3" charge="3.271" sigma="3.64"  epsilon="0.041"/>
+  <Atom type="Hf3+4" charge="3.921" sigma="3.141" epsilon="0.072"/>
+  <Atom type="Ta3+5" charge="4.075" sigma="3.17"  epsilon="0.081"/>
+  <Atom type="W_6+6" charge="3.7"   sigma="3.069" epsilon="0.067"/>
+  <Atom type="W_3+4" charge="3.7"   sigma="3.069" epsilon="0.067"/>
+  <Atom type="W_3+6" charge="3.7"   sigma="3.069" epsilon="0.067"/>
+  <Atom type="Re6+5" charge="3.7"   sigma="2.954" epsilon="0.066"/>
+  <Atom type="Re3+7" charge="3.7"   sigma="2.954" epsilon="0.066"/>
+  <Atom type="Os6+6" charge="3.7"   sigma="3.12"  epsilon="0.037"/>
+  <Atom type="Ir6+3" charge="3.731" sigma="2.84"  epsilon="0.073"/>
+  <Atom type="Pt4+2" charge="3.382" sigma="2.754" epsilon="0.08"/>
+  <Atom type="Au4+3" charge="2.625" sigma="3.293" epsilon="0.039"/>
+  <Atom type="Hg1+2" charge="1.75"  sigma="2.705" epsilon="0.385"/>
+  <Atom type="Tl3+3" charge="2.068" sigma="4.347" epsilon="0.68"/>
+  <Atom type="Pb3"   charge="2.846" sigma="4.297" epsilon="0.663"/>
+  <Atom type="Bi3+3" charge="2.47"  sigma="4.37"  epsilon="0.518"/>
+  <Atom type="Po3+2" charge="2.33"  sigma="4.709" epsilon="0.325"/>
+  <Atom type="At"    charge="2.24"  sigma="4.75"  epsilon="0.284"/>
+  <Atom type="Rn4+4" charge="0.583" sigma="4.765" epsilon="0.248"/>
+  <Atom type="Fr"    charge="1.847" sigma="4.9"   epsilon="0.05"/>
+  <Atom type="Ra6+2" charge="2.92"  sigma="3.677" epsilon="0.404"/>
+  <Atom type="Ac6+3" charge="3.9"   sigma="3.478" epsilon="0.033"/>
+  <Atom type="Th6+4" charge="4.202" sigma="3.396" epsilon="0.026"/>
+  <Atom type="Pa6+4" charge="3.9"   sigma="3.424" epsilon="0.022"/>
+  <Atom type="U_6+4" charge="3.9"   sigma="3.395" epsilon="0.022"/>
+ </NonbondedForce>
+</ForceField>
