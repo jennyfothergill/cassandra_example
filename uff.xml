@@ -1,7 +1,7 @@
 <ForceField>
  <AtomTypes>
-  <Type name="H_"    class="H_"    element="H"  mass="1.007"/>
-  <Type name="H_b"   class="H_b"   element="H"  mass="1.007"   def="[H;X2]" desc="bridging hydrogen"/>
+  <Type name="H_"    class="H_"    element="H"  mass="1.007"   def="[H]"/>
+  <Type name="H_b"   class="H_b"   element="H"  mass="1.007"   def="[H;X2]" overrides="H_" desc="bridging hydrogen"/>
   <Type name="He4+4" class="He4+4" element="He" mass="4.002602"/>
   <Type name="Li"    class="Li"    element="Li" mass="6.941"/>
   <Type name="Be3+2" class="Be3+2" element="Be" mass="9.012182"/>
