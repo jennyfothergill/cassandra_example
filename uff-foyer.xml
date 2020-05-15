@@ -15,6 +15,7 @@
 		<Type name="N_R" class="N_R" element="N" mass="14.0067"/>
 		<Type name="N_2" class="N_2" element="N" mass="14.0067" def = "[N;X2]" desc = "trigonal nitrogen"/>
 		<Type name="N_1" class="N_1" element="N" mass="14.0067" def = "[N;X1]" desc = "linear nitrogen"/>
+		<Type name="O_" class="O_" element="O" mass="15.9994" def = "[O]" desc = "made up to ease foyer typing"/>
 		<Type name="O_3" class="O_3" element="O" mass="15.9994" def = "[O;X2]" overrides = "O_" desc = "tetrahedral oxygen"/>
 		<Type name="O_3_z" class="O_3_z" element="O" mass="15.9994" def = "[O]([Al,Si,Ti,Sn,Zn])" overrides = "O_, O_2, O_3" desc = "zeolite oxygen"/>
 		<Type name="O_R" class="O_R" element="O" mass="15.9994"/>
@@ -26,6 +27,7 @@
 		<Type name="Mg3+2" class="Mg3+2" element="Mg" mass="24.3050"/>
 		<Type name="Al3" class="Al3" element="Al" mass="26.9815386" def = "[Al]"/>
 		<Type name="Si3" class="Si3" element="Si" mass="28.0855"/>
+		<Type name="P_" class="P_" element="P" mass="30.973762" def = "[P]" overrides = "P_" desc = "made up to ease foyer typing"/>
 		<Type name="P_3+3" class="P_3+3" element="P" mass="30.973762" def = "[P;X3]" overrides = "P_" desc = "tetrahedral phosphorous +3"/>
 		<Type name="P_3+5" class="P_3+5" element="P" mass="30.973762" def = "[P;X4]" overrides = "P_" desc = "tetrahedral phosphorous +5"/>
 		<Type name="P_3+q" class="P_3+q" element="P" mass="30.973762" def = "[P;X3](C)" overrides = "P_" desc = "tetrahedral phosphorous in organometallics"/>
@@ -117,7 +119,7 @@
 		<Type name="Pa6+4" class="Pa6+4" element="Pa" mass="231.03588"/>
 		<Type name="U_6+4" class="U_6+4" element="U" mass="238.02891"/>
 	</AtomTypes>
-	<NonbondedForce>
+	<NonbondedForce coulomb14scale="0.833333" lj14scale="0.5">
 		<Atom type="H_" charge="0.712" sigma="2.886" epsilon="0.044"/>
 		<Atom type="H_b" charge="0.712" sigma="2.886" epsilon="0.044"/>
 		<Atom type="He4+4" charge="0.098" sigma="2.362" epsilon="0.056"/>
