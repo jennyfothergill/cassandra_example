@@ -27,7 +27,7 @@
 		<Type name="Mg3+2" class="Mg3+2" element="Mg" mass="24.3050"/>
 		<Type name="Al3" class="Al3" element="Al" mass="26.9815386" def = "[Al]"/>
 		<Type name="Si3" class="Si3" element="Si" mass="28.0855"/>
-		<Type name="P_" class="P_" element="P" mass="30.973762" def = "[P]" overrides = "P_" desc = "made up to ease foyer typing"/>
+		<Type name="P_" class="P_" element="P" mass="30.973762" def = "[P]" desc = "made up to ease foyer typing"/>
 		<Type name="P_3+3" class="P_3+3" element="P" mass="30.973762" def = "[P;X3]" overrides = "P_" desc = "tetrahedral phosphorous +3"/>
 		<Type name="P_3+5" class="P_3+5" element="P" mass="30.973762" def = "[P;X4]" overrides = "P_" desc = "tetrahedral phosphorous +5"/>
 		<Type name="P_3+q" class="P_3+q" element="P" mass="30.973762" def = "[P;X3](C)" overrides = "P_" desc = "tetrahedral phosphorous in organometallics"/>
@@ -135,6 +135,7 @@
 		<Atom type="N_R" charge="2.544" sigma="3.66" epsilon="0.069"/>
 		<Atom type="N_2" charge="2.544" sigma="3.66" epsilon="0.069"/>
 		<Atom type="N_1" charge="2.544" sigma="3.66" epsilon="0.069"/>
+		<Atom type="O_" charge="2.3" sigma="3.5" epsilon="0.06"/>
 		<Atom type="O_3" charge="2.3" sigma="3.5" epsilon="0.06"/>
 		<Atom type="O_3_z" charge="2.3" sigma="3.5" epsilon="0.06"/>
 		<Atom type="O_R" charge="2.3" sigma="3.5" epsilon="0.06"/>
@@ -146,6 +147,7 @@
 		<Atom type="Mg3+2" charge="1.787" sigma="3.021" epsilon="0.111"/>
 		<Atom type="Al3" charge="1.792" sigma="4.499" epsilon="0.505"/>
 		<Atom type="Si3" charge="2.323" sigma="4.295" epsilon="0.402"/>
+		<Atom type="P_" charge="2.863" sigma="4.147" epsilon="0.305"/>
 		<Atom type="P_3+3" charge="2.863" sigma="4.147" epsilon="0.305"/>
 		<Atom type="P_3+5" charge="2.863" sigma="4.147" epsilon="0.305"/>
 		<Atom type="P_3+q" charge="2.863" sigma="4.147" epsilon="0.305"/>
