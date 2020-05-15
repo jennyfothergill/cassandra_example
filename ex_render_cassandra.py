@@ -6,6 +6,7 @@ import PIL
 import sys
 import IPython
 import math
+import matplotlib.cm
 
 
 device = fresnel.Device(mode='cpu');
@@ -45,6 +46,18 @@ cpk_colors = {
     "Fe": fresnel.color.linear([0.87, 0.47, 0.00]),  # dark orange
     "default": fresnel.color.linear([0.87, 0.47, 1.00]),  # pink
 }
+
+bsu_colors = [
+        fresnel.color.linear([0.00, 0.20, 0.63]), # blue
+        fresnel.color.linear([0.84, 0.30, 0.04]), # orange
+        fresnel.color.linear([0.00, 0.23, 0.44]), # blue
+        fresnel.color.linear([0.00, 0.42, 0.65]), # blue
+        fresnel.color.linear([0.00, 0.45, 0.81]), # blue
+        fresnel.color.linear([0.25, 0.38, 0.60]), # blue
+        fresnel.color.linear([0.17, 0.99, 1.00]), # blue
+        fresnel.color.linear([1.00, 0.39, 0.03]), # orange
+        fresnel.color.linear([1.00, 0.40, 0.00]), # orange
+        ]
 
 class Cassandra_frame():
     def __init__(self, types, positions, box):
@@ -98,7 +111,7 @@ def make_traj(xyzfile, boxfile):
     return traj
 
 
-def render_sphere_frame(frame, height=None):
+def render_sphere_frame(frame, height=None, color="cpk"):
     """
     Modified from hoomd-examples/ex_render.py to work with the
     Cassandra_frame class
@@ -119,15 +132,40 @@ def render_sphere_frame(frame, height=None):
     g.outline_width = 0.07
     scene.camera = fresnel.camera.orthographic(position=(height, height, height), look_at=(0,0,0), up=(0,1,0), height=height)
 
-    for typename in set(frame.types):
+    unique_types = list(set(frame.types))
+    if color == "cpk":
+        # Populate the color_array with colors based on particle name
+        # -- if name is not defined in the dictionary, use pink (the default)
+        for typename in unique_types:
+            try:
+                g.color[frame.types == typename] = cpk_colors[typename];
+            except KeyError:
+                g.color[frame.types == typename] = cpk_colors["default"];
+    elif color == "bsu":
+        # Populate the color array with the brand standard bsu colors
+        # https://www.boisestate.edu/communicationsandmarketing/brand-standards/colors/
+        # if there are more unique particle names than colors, colors will be reused
+        for i, n in enumerate(unique_types):
+            g.color[frame.types == n] = bsu_colors[i % len(bsu_colors)]
+    else:
+        # Populate the color_array with colors based on particle name
+        # choose colors evenly distributed through a matplotlib colormap
         try:
-            g.color[frame.types == typename] = cpk_colors[
-                    typename[:2].strip("_")
-                    ];
-        except KeyError:
-            g.color[frame.types == typename] = cpk_colors[
-                    "default"
-                    ];
+            cmap = matplotlib.cm.get_cmap(name=color)
+        except ValueError:
+            print(
+                    "The 'color' argument takes either 'cpk', 'bsu', ",
+                    "or the name of a matplotlib colormap."
+                    )
+            raise
+        mapper = matplotlib.cm.ScalarMappable(
+            norm=matplotlib.colors.Normalize(vmin=0, vmax=1, clip=True), cmap=cmap
+        )
+        N_types = len(unique_types)
+        v = np.linspace(0, 1, N_types)
+        # Color by typeid
+        for i,n in enumerate(unique_types):
+            g.color[frame.types == n] = fresnel.color.linear(mapper.to_rgba(v)[i])
 
 
     scene.background_color = (1,1,1)
@@ -135,8 +173,8 @@ def render_sphere_frame(frame, height=None):
     return path_tracer.sample(scene, samples=64, light_samples=20)
 
 
-def display_movie(frame_gen, traj, gif = None):
-    a = frame_gen(traj[0], height = 30);
+def display_movie(frame_gen, traj, color="cpk", gif = None):
+    a = frame_gen(traj[0], color=color)
 
     if tuple(map(int, (PIL.__version__.split(".")))) < (3,4,0):
         print("Warning! Movie display output requires pillow 3.4.0 or newer.")
@@ -145,7 +183,7 @@ def display_movie(frame_gen, traj, gif = None):
     im0 = PIL.Image.fromarray(a[:,:, 0:3], mode='RGB').convert("P", palette=PIL.Image.ADAPTIVE);
     ims = [];
     for f in traj[1:]:
-        a = frame_gen(f, height = 30);
+        a = frame_gen(f, color=color);
         im = PIL.Image.fromarray(a[:,:, 0:3], mode='RGB')
         im_p = im.quantize(palette=im0);
         ims.append(im_p)
