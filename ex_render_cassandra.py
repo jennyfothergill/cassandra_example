@@ -12,9 +12,39 @@ device = fresnel.Device(mode='cpu');
 preview_tracer = fresnel.tracer.Preview(device, 300, 300)
 path_tracer = fresnel.tracer.Path(device, 300, 300)
 
-blue = fresnel.color.linear([0.25,0.5,1])*0.9;
-orange = fresnel.color.linear([1.0,0.714,0.169])*0.9
-
+cpk_colors = {
+    "H": fresnel.color.linear([1.00, 1.00, 1.00]),  # white
+    "C": fresnel.color.linear([0.30, 0.30, 0.30]),  # grey
+    "N": fresnel.color.linear([0.13, 0.20, 1.00]),  # dark blue
+    "O": fresnel.color.linear([1.00, 0.13, 0.00]),  # red
+    "F": fresnel.color.linear([0.12, 0.94, 0.12]),  # green
+    "Cl": fresnel.color.linear([0.12, 0.94, 0.12]),  # green
+    "Br": fresnel.color.linear([0.60, 0.13, 0.00]),  # dark red
+    "I": fresnel.color.linear([0.40, 0.00, 0.73]),  # dark violet
+    "He": fresnel.color.linear([0.00, 1.00, 1.00]),  # cyan
+    "Ne": fresnel.color.linear([0.00, 1.00, 1.00]),  # cyan
+    "Ar": fresnel.color.linear([0.00, 1.00, 1.00]),  # cyan
+    "Xe": fresnel.color.linear([0.00, 1.00, 1.00]),  # cyan
+    "Kr": fresnel.color.linear([0.00, 1.00, 1.00]),  # cyan
+    "P": fresnel.color.linear([1.00, 0.60, 0.00]),  # orange
+    "S": fresnel.color.linear([1.00, 0.90, 0.13]),  # yellow
+    "B": fresnel.color.linear([1.00, 0.67, 0.47]),  # peach
+    "Li": fresnel.color.linear([0.47, 0.00, 1.00]),  # violet
+    "Na": fresnel.color.linear([0.47, 0.00, 1.00]),  # violet
+    "K": fresnel.color.linear([0.47, 0.00, 1.00]),  # violet
+    "Rb": fresnel.color.linear([0.47, 0.00, 1.00]),  # violet
+    "Cs": fresnel.color.linear([0.47, 0.00, 1.00]),  # violet
+    "Fr": fresnel.color.linear([0.47, 0.00, 1.00]),  # violet
+    "Be": fresnel.color.linear([0.00, 0.47, 0.00]),  # dark green
+    "Mg": fresnel.color.linear([0.00, 0.47, 0.00]),  # dark green
+    "Ca": fresnel.color.linear([0.00, 0.47, 0.00]),  # dark green
+    "Sr": fresnel.color.linear([0.00, 0.47, 0.00]),  # dark green
+    "Ba": fresnel.color.linear([0.00, 0.47, 0.00]),  # dark green
+    "Ra": fresnel.color.linear([0.00, 0.47, 0.00]),  # dark green
+    "Ti": fresnel.color.linear([0.60, 0.60, 0.60]),  # grey
+    "Fe": fresnel.color.linear([0.87, 0.47, 0.00]),  # dark orange
+    "default": fresnel.color.linear([0.87, 0.47, 1.00]),  # pink
+}
 
 class Cassandra_frame():
     def __init__(self, types, positions, box):
@@ -85,13 +115,20 @@ def render_sphere_frame(frame, height=None):
     scene = fresnel.Scene(device)
     scene.lights = fresnel.light.cloudy();
     g = fresnel.geometry.Sphere(scene, position=frame.positions, radius=np.ones(len(frame.types))*0.5)
-    g.material = fresnel.material.Material(solid=0.0, color=blue, primitive_color_mix=1.0, specular=1.0, roughness=0.2)
+    g.material = fresnel.material.Material(solid=0.0, primitive_color_mix=1.0, specular=1.0, roughness=0.2)
     g.outline_width = 0.07
     scene.camera = fresnel.camera.orthographic(position=(height, height, height), look_at=(0,0,0), up=(0,1,0), height=height)
 
-    g.color[frame.types == "C"] = blue;
-    g.color[frame.types == "_C"] = blue;
-    g.color[frame.types == "H"] = orange;
+    for typename in set(frame.types):
+        try:
+            g.color[frame.types == typename] = cpk_colors[
+                    typename[:2].strip("_")
+                    ];
+        except KeyError:
+            g.color[frame.types == typename] = cpk_colors[
+                    "default"
+                    ];
+
 
     scene.background_color = (1,1,1)
 
