@@ -103,9 +103,14 @@ def make_traj(xyzfile, boxfile):
         arr = xyzlines[i+2:i+2+n_atoms]
         data = np.genfromtxt(arr, dtype = d_xyz)
         atoms = np.array([i["atom"] for i in data], dtype="U8")
-        xyz = np.stack([i["xyz"] for i in data])
-        frame = Cassandra_frame(atoms, xyz, boxes[step])
-        traj.append(frame)
+        try:
+            xyz = np.stack([i["xyz"] for i in data])
+            frame = Cassandra_frame(atoms, xyz, boxes[step])
+            traj.append(frame)
+        except ValueError:
+            # this will catch empty boxes and won't show them in display movie
+            # might be nice to fix this later
+            pass
         i += 2+n_atoms
         step += 1
     return traj

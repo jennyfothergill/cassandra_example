@@ -1,0 +1,8 @@
+<ForceField>
+	<AtomTypes>
+		<Type name="C" class="C" element="" mass="1" def="C"/>
+	</AtomTypes>
+	<NonbondedForce coulomb14scale="0.833333" lj14scale="0.5">
+		<Atom type="C" charge="0" sigma="1" epsilon="1"/>
+	</NonbondedForce>
+</ForceField>
